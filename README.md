@@ -1,7 +1,7 @@
 # pwcho
 ## 1B)
 ```
-$ docker build https://github.com/314Geonek/Pwcho.git
+$ docker build https://github.com/314Geonek/pwcho.git 
 ```
 ## 2B)
 
