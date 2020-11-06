@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Programowanie w chmurze obliczeniowej</title>
+    <style>
+      body{
+        color: #2c3340;
+        background-color: #13121C;
+        font-family: Arial, Verdana, sans-serif;
+        opacity: 0.85;
+        margin: auto;
+        width: 90%;
+        text-align: center;
+      }
+      h2{
+        color: #0000ff;
+        border-radius: 20px;
+        border-color: #0000ff;
+        border-style: solid;
+        border-width: thick;
+        padding: 10px;
+        margin-top: 80px;
+      }
+      div.zone{
+        font-size: 30px;
+        border-radius: 35px;
+        width: 27%;
+        padding: 10px;
+        padding-top: 50px;
+        font-weight: bold;
+        padding-bottom:50px;
+        opacity: 0.65;
+        margin: 10px 10px 25px 10px;
+      }
+
+      div:hover{
+        opacity: 1;
+      }
+
+      #d0{
+        display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      #d1{
+        border-color: #780FF0;
+        border-style: solid;
+        border-width: thick;
+        float: left;
+        color: #780FF0;
+      }
+      #d2{
+        border-color: #FF1FEA;
+        border-style: solid;
+        border-width: thick;
+        float: left;
+        color: #FF1FEA;
+      }
+
+      #d3{
+        border-color: #FF1F5B;
+        border-style: solid;
+        border-width: thick;
+        float: left;
+        color: #FF1F5B;
+      }
+      footer{
+        border-radius: 20px;
+        padding: 10px;
+        margin: 10px;
+        border-color: #E22626;
+        border-style: solid;
+        border-width: thick;
+        clear: both;
+        color: #E22626;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <h2>Programowanie w chmurze obliczeniowej</h2>
+
+    <div id="d0">
+      <div id="d1" class="zone"></div>
+      <div id="d2" class="zone"></div>
+      <div id="d3" class="zone"></div>
+    </div>
+    <script>
+      function getTime(timezone)
+      {
+              let options = {
+              timeZone: timezone,
+              hour: 'numeric',
+              minute: 'numeric',
+              day: 'numeric',
+              month: 'numeric',
+              second: 'numeric',
+            },
+            time = new Intl.DateTimeFormat([], options);
+            var id;
+              var city ;
+            switch(timezone)
+            {
+              case 'America/New_York': 
+                id = "d1";
+                city = "New York";
+                break;
+              case 'Europe/Warsaw': 
+                id = "d2";
+                city = "Lublin";
+                break;
+              case 'Australia/Sydney':
+                id = "d3";
+                city = "Sydney";
+                break;
+            }
+            console.log(id + city);
+            document.getElementById(id).innerHTML = city+"<br><br>" + time.format(new Date());
+      }
+
+      setInterval(function() { getTime("Europe/Warsaw"); }, 500);
+      setInterval(function() { getTime("America/New_York"); }, 500);
+      setInterval(function() { getTime("Australia/Sydney"); }, 500);
+    </script>
+
+    <footer>
+      &copy2020 Łukasz Przychodzień
+    </footer>
+  </body>
+</html>
